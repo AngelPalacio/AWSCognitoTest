@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-abstestapp-dev-164015-authRole",
+      "UnauthRoleArn": "arn:aws:iam::729372685911:role/amplify-abstestapp-dev-164015-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::729372685911:role/amplify-abstestapp-dev-164015-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-abstestapp-dev-164015-deployment",
+      "UnauthRoleName": "amplify-abstestapp-dev-164015-unauthRole",
+      "StackName": "amplify-abstestapp-dev-164015",
+      "StackId": "arn:aws:cloudformation:eu-central-1:729372685911:stack/amplify-abstestapp-dev-164015/abb0a140-153d-11eb-b06b-0ad1bb830c16",
+      "AmplifyAppId": "d2o0ly47wtssqq"
+    }
+  }
+}
