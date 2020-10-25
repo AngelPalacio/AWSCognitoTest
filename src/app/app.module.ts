@@ -4,11 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { LoginComponent } from './login/login.component';
+import { FormBuilder } from '@angular/forms';
+
 /* Add Amplify imports */
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
-import { LoginComponent } from './login/login.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 /* Configure Amplify resources */
 Amplify.configure(awsconfig);
@@ -71,9 +76,14 @@ Amplify.configure({
 });
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
-  imports: [BrowserModule, AppRoutingModule, AmplifyUIAngularModule],
-  providers: [],
+  declarations: [AppComponent, LoginComponent, UserDetailsComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AmplifyUIAngularModule,
+    ReactiveFormsModule,
+  ],
+  providers: [FormBuilder],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
