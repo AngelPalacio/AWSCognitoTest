@@ -1,9 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import "_globals.scss";
+
 * {
   padding: 0px;
   margin: 0px;
   font-family: "Calibri";
-  color: #252525;
+  color: $dark-font;
 }
 
 a {
@@ -16,18 +17,22 @@ a {
   font-weight: bold;
   border-radius: 25px;
   padding: 15px 30px;
-  color: #252525;
-  background-color: #eeeeee;
-  border: 1px solid #cccccc;
+  color: $dark-font;
+  background-color: $abled-gray;
+  border: 1px solid$abled-gray;
 }
 
 .btn:hover {
-  color: #252525;
-  background-color: #cccccc;
+  color: $dark-font;
+  background-color: $active-gray;
 }
 
 .btn.disabled {
   color: white;
-  background-color: lightgray;
+  background-color: $disabled-gray;
   border: none;
+}
+
+::placeholder {
+  color: $disabled-gray;
 }

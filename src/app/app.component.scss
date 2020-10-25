@@ -1,3 +1,5 @@
+@import "../_globals.scss";
+
 #mainWrapper {
   min-height: 100vh;
   display: flex;
@@ -5,7 +7,7 @@
 
   header {
     width: 100%;
-    background: black;
+    background: $dark-font;
     height: 6vh;
 
     img {
