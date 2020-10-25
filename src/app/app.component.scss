@@ -1,0 +1,16 @@
+#mainWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    width: 100%;
+    background: black;
+    height: 6vh;
+
+    img {
+      height: 25px;
+      margin: 12px 0px 10px 10px;
+    }
+  }
+}

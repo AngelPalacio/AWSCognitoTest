@@ -42,4 +42,12 @@ export class LoginComponent implements OnInit {
       );
     });
   }
+
+  register() {
+    alert('Not implemented, sorry!');
+  }
+
+  resetPassword() {
+    alert('Not implemented, sorry!');
+  }
 }

@@ -1,4 +1,40 @@
-<p>login works!</p>
-<button (click)="login()">Log in</button>
-<button (click)="changeUser()">Change name</button>
-<button (click)="logout()">Log out</button>
+<div id="loginMainContent">
+  <div id="loginFormWrapper">
+    <div class="formHeader">
+      <h2>Anmelden</h2>
+      <p>
+        Neuer Benutzer?
+        <a href="#" (click)="register()">Kostenlos registrieren</a>
+      </p>
+    </div>
+    <form id="loginForm">
+      <div>
+        <label><b>Benutzername</b></label>
+        <input
+          type="text"
+          name="Uname"
+          id="Uname"
+          placeholder="vorname nachname"
+        />
+        <label><b>Passwort</b></label>
+        <input
+          type="Password"
+          name="Pass"
+          id="Pass"
+          placeholder="Passwort eingeben"
+        />
+      </div>
+      <div class="loginFooter">
+        <a href="#" (click)="resetPassword()"
+          ><strong>Zugansdaten vergessen?</strong></a
+        >
+        <button class="btn" click="login()">Anmelden</button>
+      </div>
+    </form>
+  </div>
+  <!--
+  <button (click)="login()">Log in</button>
+  <button (click)="changeUser()">Change name</button>
+  <button (click)="logout()">Log out</button>
+  -->
+</div>
