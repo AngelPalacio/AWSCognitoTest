@@ -7,8 +7,16 @@
   color: $dark-font;
 }
 
+#mainContent {
+  height: 94vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .btn {

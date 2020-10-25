@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Auth } from 'aws-amplify';
+import { SharedStateService } from '../shared-state.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,11 @@ export class LoginComponent implements OnInit {
   submitted = false;
   errorMessage = '';
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private sharedStateService: SharedStateService
+  ) {}
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -29,50 +34,35 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.errorMessage = '';
+    this.loading = true;
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.form.invalid) {
+      this.loading = false;
       return;
     }
 
-    this.login(this.f.username.value, this.f.password.value, '/user-details');
+    this.login(this.f.username.value, this.f.password.value, 'user-details');
   }
 
   login(user, password, redirectUrl) {
     Auth.signIn(user, password)
-      .then((user) => {
+      .then((res) => {
         console.log('Login correcto!');
-        console.log(user);
-        Auth.currentAuthenticatedUser().then((u) => {
-          console.log('El usuario está autenticado');
-          console.log(u);
+        console.log(res);
+        Auth.currentAuthenticatedUser().then((authUser) => {
+          console.log('El usuario está autenticado en login.component');
+          console.log(authUser);
+          this.sharedStateService.setLoggedUser(authUser);
           this.router.navigateByUrl(redirectUrl);
+          this.loading = false;
         });
       })
       .catch((err) => {
         console.error(err);
         this.errorMessage = err.message;
+        this.loading = false;
       });
-  }
-
-  logout() {
-    Auth.signOut().then((data) => {
-      console.log('Logout correcto');
-      console.log(data);
-    });
-  }
-
-  changeUser() {
-    Auth.currentAuthenticatedUser().then((user) => {
-      console.log('Actualizando datos...');
-      Auth.updateUserAttributes(user, { preferred_username: 'mikey' }).then(
-        (data) => {
-          console.log('datos actualizados');
-          console.log(data);
-        }
-      );
-    });
   }
 
   register() {

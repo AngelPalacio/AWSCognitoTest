@@ -1,1 +1,73 @@
-<p>user-details works!</p>
+<div id="mainContent">
+  <div id="userFormWrapper">
+    <form id="userForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2>{{ user.name }}</h2>
+      <div class="form-group">
+        <label for="email">Benutzername</label>
+        <input
+          type="text"
+          formControlName="nickname"
+          placeholder="Benutzername"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          formControlName="email"
+          placeholder="sample@sample.com"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Telefon 1</label>
+        <input
+          type="text"
+          formControlName="phone1"
+          placeholder="+49 XXX XXX"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Telefon 2</label>
+        <input
+          type="text"
+          formControlName="phone2"
+          placeholder="+49 XXX XXX"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Benutzer erstellt</label>
+        <input
+          type="text"
+          formControlName="benutzerErstellt"
+          placeholder="Benutzer erstellt"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group"></div>
+
+      <div class="result">
+        <span class="editError">
+          {{ errorMessage ? errorMessage : "&nbsp;" }}
+        </span>
+        <span class="editSuccess">
+          {{ successMessage ? successMessage : "&nbsp;" }}
+        </span>
+      </div>
+
+      <div class="form-group userFormFooter">
+        <button
+          type="submit"
+          [disabled]="loading || form.invalid || !form.valid"
+          class="btn"
+          [ngClass]="{ disabled: loading || form.invalid }"
+        >
+          Speichern
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

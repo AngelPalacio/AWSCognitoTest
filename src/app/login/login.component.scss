@@ -1,14 +1,10 @@
-#loginMainContent {
-  height: 94vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@import "../../_globals.scss";
+
+#mainContent {
   background-image: url("/assets/bg_Anmelden.jpg");
   background-position-y: -40px;
   background-size: cover;
 }
-
-@import "../../_globals.scss";
 
 #loginFormWrapper {
   border-radius: 3px;

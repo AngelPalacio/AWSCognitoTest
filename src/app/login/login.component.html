@@ -1,10 +1,10 @@
-<div id="loginMainContent">
+<div id="mainContent">
   <div id="loginFormWrapper">
     <div class="formHeader">
       <h2>Anmelden</h2>
       <p>
         Neuer Benutzer?
-        <a href="#" (click)="register()">Kostenlos registrieren</a>
+        <a (click)="register()">Kostenlos registrieren</a>
       </p>
     </div>
 
@@ -14,7 +14,7 @@
         <input
           type="text"
           formControlName="username"
-          placeholder="vorname nachname"
+          placeholder="Vorname Nachname"
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
         />
@@ -50,11 +50,10 @@
       </span>
 
       <div class="form-group loginFooter">
-        <a href="#" (click)="resetPassword()"
-          ><strong>Zugansdaten vergessen?</strong></a
+        <a (click)="resetPassword()"><strong>Zugangsdaten vergessen?</strong></a
         ><button
           type="submit"
-          [disabled]="loading || form.invalid"
+          [disabled]="loading || form.invalid || !form.valid"
           class="btn"
           [ngClass]="{ disabled: loading || form.invalid }"
         >
@@ -63,9 +62,4 @@
       </div>
     </form>
   </div>
-  <!--
-  <button (click)="login()">Log in</button>
-  <button (click)="changeUser()">Change name</button>
-  <button (click)="logout()">Log out</button>
-  -->
 </div>

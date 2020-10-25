@@ -1,4 +1,9 @@
 <div id="mainWrapper">
-  <header><img src="./assets/Logo_ABS-LockBook.svg" /></header>
+  <header>
+    <img src="./assets/Logo_ABS-LockBook.svg" />
+    <a id="logoutLink" *ngIf="sharedStateService.LoggedUser" (click)="logout()">
+      Log out
+    </a>
+  </header>
   <router-outlet></router-outlet>
 </div>

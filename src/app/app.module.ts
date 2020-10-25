@@ -8,12 +8,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
 import { FormBuilder } from '@angular/forms';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 /* Add Amplify imports */
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import Amplify from 'aws-amplify';
 import awsconfig from '../aws-exports';
-import { UserDetailsComponent } from './user-details/user-details.component';
 
 /* Configure Amplify resources */
 Amplify.configure(awsconfig);
@@ -21,7 +21,7 @@ Amplify.configure(awsconfig);
 Amplify.configure({
   Auth: {
     // REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
-    identityPoolId: 'eu-central-1:35af5f05-e242-4827-bdda-c64e41a7fa28',
+    identityPoolId: 'eu-central-1:e67776c2-1bf5-4fea-ba35-1b12d49ce26d',
 
     // REQUIRED - Amazon Cognito Region
     region: 'eu-central-1',
@@ -31,10 +31,10 @@ Amplify.configure({
     identityPoolRegion: 'eu-central-1',
 
     // OPTIONAL - Amazon Cognito User Pool ID
-    userPoolId: 'eu-central-1_d0zoKkOO3',
+    userPoolId: 'eu-central-1_suEzMImIX',
 
     // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-    userPoolWebClientId: '6b8amf4n9b37r8273o5p7521mu',
+    userPoolWebClientId: 'rlrbj29moda7p7n1n30lfkmre',
 
     // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
     //mandatorySignIn: false,
