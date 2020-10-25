@@ -7,28 +7,59 @@
         <a href="#" (click)="register()">Kostenlos registrieren</a>
       </p>
     </div>
-    <form id="loginForm">
-      <div>
-        <label><b>Benutzername</b></label>
+
+    <form id="loginForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Benutzername</label>
         <input
           type="text"
-          name="Uname"
-          id="Uname"
+          formControlName="username"
           placeholder="vorname nachname"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
         />
-        <label><b>Passwort</b></label>
-        <input
-          type="Password"
-          name="Pass"
-          id="Pass"
-          placeholder="Passwort eingeben"
-        />
+        <div
+          *ngIf="f.username.touched && f.username.errors"
+          class="validationError"
+        >
+          <div *ngIf="f.username.errors.required">Name ist erforderlich</div>
+        </div>
       </div>
-      <div class="loginFooter">
+      <div class="form-group">
+        <label for="password">Passwort</label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Passwort eingeben"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        />
+        <div
+          *ngIf="f.password.touched && f.password.errors"
+          class="validationError"
+        >
+          <div *ngIf="f.password.errors.required">
+            Passwort ist erforderlich
+          </div>
+        </div>
+      </div>
+      <div class="form-group"></div>
+
+      <span class="loginError">
+        {{ errorMessage ? errorMessage : "&nbsp;" }}
+      </span>
+
+      <div class="form-group loginFooter">
         <a href="#" (click)="resetPassword()"
           ><strong>Zugansdaten vergessen?</strong></a
+        ><button
+          type="submit"
+          [disabled]="loading || form.invalid"
+          class="btn"
+          [ngClass]="{ disabled: loading || form.invalid }"
         >
-        <button class="btn" click="login()">Anmelden</button>
+          Anmelden
+        </button>
       </div>
     </form>
   </div>

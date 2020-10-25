@@ -33,6 +33,22 @@ a {
   border: none;
 }
 
+input {
+  border-width: 0px 0px 1px 0px;
+}
+
+input:focus,
+button {
+  outline-width: 0;
+}
+
 ::placeholder {
   color: $disabled-gray;
+}
+
+.validationError {
+  position: absolute;
+  * {
+    color: $error;
+  }
 }

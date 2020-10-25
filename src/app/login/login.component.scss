@@ -46,6 +46,7 @@
 
     label {
       margin-top: 15px;
+      font-weight: bold;
       display: block;
     }
 
@@ -64,4 +65,8 @@
       }
     }
   }
+}
+
+.loginError {
+  color: $error;
 }
