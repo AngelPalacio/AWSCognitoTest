@@ -17,7 +17,7 @@ export class AppComponent {
   ) {
     Auth.currentAuthenticatedUser()
       .then((authUser) => {
-        console.log('El usuario está autenticado en app.component');
+        console.log('User is logged in');
         console.log(authUser);
         this.sharedStateService.setLoggedUser(authUser);
         this.router.navigateByUrl('user-details');

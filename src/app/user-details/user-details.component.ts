@@ -44,21 +44,18 @@ export class UserDetailsComponent implements OnInit {
     this.successMessage = '';
 
     const newAttributes = {};
-    if (this.f.nickname.value)
-      newAttributes['preferred_username'] = this.f.nickname.value;
-    if (this.f.email.value) newAttributes['email'] = this.f.email.value;
-    if (this.f.phone1.value)
-      newAttributes['phone_number'] = this.f.phone1.value;
-    if (this.f.phone2.value)
-      newAttributes['custom:phone2'] = this.f.phone2.value;
-    if (this.f.benutzerErstellt.value)
-      newAttributes['custom:BenutzerErstellt'] = this.f.benutzerErstellt.value;
+    newAttributes['preferred_username'] = this.f.nickname.value ?? '';
+    newAttributes['email'] = this.f.email.value ?? '';
+    newAttributes['phone_number'] = this.f.phone1.value ?? '';
+    newAttributes['custom:phone2'] = this.f.phone2.value ?? '';
+    newAttributes['custom:BenutzerErstellt'] =
+      this.f.benutzerErstellt.value ?? '';
 
     const newUser = { username: this.user.name, attributes: newAttributes };
 
     Auth.currentAuthenticatedUser()
       .then((user) => {
-        console.log('Actualizando datos...');
+        console.log('Updating info...');
         Auth.updateUserAttributes(user, newAttributes)
           .then((data) => {
             this.sharedStateService.setLoggedUser(newUser);

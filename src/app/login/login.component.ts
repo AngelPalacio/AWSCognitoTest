@@ -48,10 +48,10 @@ export class LoginComponent implements OnInit {
   login(user, password, redirectUrl) {
     Auth.signIn(user, password)
       .then((res) => {
-        console.log('Login correcto!');
+        console.log('Login done');
         console.log(res);
         Auth.currentAuthenticatedUser().then((authUser) => {
-          console.log('El usuario está autenticado en login.component');
+          console.log('User is logged it');
           console.log(authUser);
           this.sharedStateService.setLoggedUser(authUser);
           this.router.navigateByUrl(redirectUrl);
